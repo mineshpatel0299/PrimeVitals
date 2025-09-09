@@ -1,0 +1,80 @@
+import BackgroundVideo from "../../assets/video.mp4";
+import MobileVideo from "../../assets/videomobile.mp4";
+import { useNavigate } from "react-router-dom";
+import { FlipWords } from "../ui/flip-words";
+
+const HeroSection = () => {
+  const navigate = useNavigate();
+  const words = ["TRUST", "COMPASSION", "EXPERTISE"];
+
+  const handleClick = () => {
+    navigate("/packages");
+  };
+
+  const handlebook = () => {
+    navigate("/contact");
+  };
+
+  return (
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Video - Desktop */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="hidden sm:block absolute inset-0 w-full h-full object-cover object-[80%_center]"
+      >
+        <source src={BackgroundVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Mobile Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="sm:hidden absolute inset-0 w-full h-full object-cover object-[60%_center]"
+      >
+        <source src={MobileVideo} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Content */}
+      <div className="relative z-10 text-white px-4 mx-auto w-full sm:max-w-4xl sm:text-center sm:items-center sm:justify-center flex sm:block">
+        <div className="w-1/2 text-left sm:w-full">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl mb-6">
+            Care that begins with
+          </h1>
+
+          {/* Mobile-friendly word rotation */}
+          <div className="text-3xl sm:text-5xl md:text-6xl font-bold text-white">
+            <FlipWords words={words} />
+          </div>
+
+          <p className="text-lg sm:text-xl md:text-2xl mb-8 mt-4">
+            Trusted Diagnostics. Faster Results. Accurate Reports.
+          </p>
+
+          <div className="flex flex-col sm:flex-row justify-start sm:justify-center gap-4">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-medium transition duration-300"
+              onClick={handlebook}
+            >
+              Book a Test
+            </button>
+            <button
+              className="border-2 border-white text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-white hover:text-blue-500 transition duration-300"
+              onClick={handleClick}
+            >
+              View Packages
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroSection;
