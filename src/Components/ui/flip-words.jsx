@@ -31,6 +31,7 @@ export const FlipWords = ({
         setIsAnimating(false);
       }}
     >
+        
       <motion.div
         initial={{
           opacity: 0,
