@@ -1,19 +1,21 @@
-import BackgroundVideo from "../../assets/video.mp4";
-import MobileVideo from "../../assets/videomobile.mp4";
-import { useNavigate } from "react-router-dom";
-import { FlipWords } from "../ui/flip-words";
+"use client"
+
+import BackgroundVideo from "../../assets/video.mp4"
+import MobileVideo from "../../assets/videomobile.mp4"
+import { useNavigate } from "react-router-dom"
+import { FlipWords } from "../ui/flip-words"
 
 const HeroSection = () => {
-  const navigate = useNavigate();
-  const words = ["TRUST", "COMPASSION", "EXPERTISE"];
+  const navigate = useNavigate()
+  const words = ["TRUST", "COMPASSION", "EXPERTISE"]
 
   const handleClick = () => {
-    navigate("/packages");
-  };
+    navigate("/packages")
+  }
 
   const handlebook = () => {
-    navigate("/contact");
-  };
+    navigate("/contact")
+  }
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -43,14 +45,12 @@ const HeroSection = () => {
 
       {/* Content */}
       <div className="relative z-10 text-white px-4 mx-auto w-full sm:max-w-4xl sm:text-center sm:items-center sm:justify-center flex sm:block">
-        <div className="w-1/2 text-left sm:w-full">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl mb-6">
-            Care that begins with
-          </h1>
+        <div className="w-full text-left sm:w-full">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl mb-6">Care that begins with</h1>
 
           {/* Mobile-friendly word rotation */}
-          <div className="text-3xl sm:text-5xl md:text-6xl font-bold text-white">
-            <FlipWords words={words} />
+          <div className="text-2xl xs:text-3xl sm:text-5xl md:text-6xl font-bold text-white min-h-[3rem] xs:min-h-[3.5rem] sm:min-h-[4rem] md:min-h-[5rem] flex items-center overflow-hidden">
+            <FlipWords words={words} className="leading-tight whitespace-nowrap" />
           </div>
 
           <p className="text-lg sm:text-xl md:text-2xl mb-8 mt-4">
@@ -71,10 +71,10 @@ const HeroSection = () => {
               View Packages
             </button>
           </div>
-        </div>
+        </div>g
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default HeroSection;
+export default HeroSection
